@@ -1,15 +1,31 @@
-from typing import List
+#!/usr/bin/env python3
+"""
+This module contains a type-annotated function zoom_array that takes a tuple
+and returns a list
+"""
+from typing import Tuple, List
 
-def zoom_array(lst: List[int], factor: int = 2) -> List[int]:
-    zoomed_in: List[int] = [
+
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """
+    Returns a list of tuples containing the elements of lst and their lengths
+
+    Args:
+        lst (Tuple): A tuple of elements
+        factor (int, optional): The factor by which to zoom the elements.
+        Defaults to 2.
+
+    Returns:
+        List: A list of tuples containing the elements
+    """
+    zoomed_in: List = [
         item for item in lst
         for i in range(factor)
     ]
     return zoomed_in
 
 
-array = [12, 72, 91]
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
-
-zoom_3x = zoom_array(array, 3)  # Use an integer (3), instead of a float (3.0)
+zoom_3x = zoom_array(array, int(3.0))
